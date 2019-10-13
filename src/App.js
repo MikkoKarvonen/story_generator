@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState }  from 'react';
 import './App.css';
 
 function App() {
+  const [storyText, setStoryText] = useState('');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div id="tweet-wall">
+        <p>{storyText}</p>
+      </div>
+      <textarea
+        rows="4"
+        cols="50"
+        placeholder="Let me tell you a story..." 
+        value={storyText}
+        onChange={e => setStoryText(e.target.value)}/>
     </div>
   );
 }
